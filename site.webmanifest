@@ -1,0 +1,14 @@
+{
+  "name": "Studio Akari",
+  "short_name": "Studio Akari",
+  "description": "Production photo et vidéo à Poitiers et ses alentours.",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#1A1A1A",
+  "theme_color": "#1A1A1A",
+  "icons": [
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

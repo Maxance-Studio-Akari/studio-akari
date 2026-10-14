@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <!-- Page affichée par le serveur pour toute adresse inconnue : les liens commencent par « / » -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page introuvable — Studio Akari</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1A1A1A">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/img/icon-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>
+    (function (d) {
+      var c = d.documentElement.classList;
+      c.add('js');
+      if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) c.add('motion');
+      // Filet de sécurité : si le script principal ne se charge pas, on affiche tout.
+      setTimeout(function () { if (!window.__akari) c.remove('motion', 'js'); }, 4000);
+    })(document);
+  </script>
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<div class="grain" aria-hidden="true"><div class="grain__noise"></div></div>
+
+<div class="page">
+  <!-- En-tête -->
+  <div class="header-spacer"></div>
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="brand" href="/"><img src="/assets/img/logo-blanc.png" alt="Studio Akari — accueil" width="94" height="34"></a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="/">Le studio</a>
+        <a href="/clients.html">Clients &amp; réalisations</a>
+        <a href="/formules.html">Formules &amp; contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-cta" href="/formules.html#contact">Demander un devis</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="menu-mobile" aria-label="Menu mobile" hidden>
+      <a href="/">Le studio</a>
+      <a href="/clients.html">Clients &amp; réalisations</a>
+      <a href="/formules.html">Formules &amp; contact</a>
+      <a class="mobile-nav__contact" href="/formules.html#contact">Contact</a>
+    </nav>
+    <div class="scroll-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero">
+      <div class="glows glows--hero" aria-hidden="true"><span></span><span></span></div>
+      <div class="container page-hero__inner page-hero__inner--tall">
+        <div class="eyebrow breadcrumb" data-reveal="fade"><span class="eyebrow-line" data-reveal="line" data-delay="200"></span>Erreur 404</div>
+        <h1 class="display display--page">
+          <span class="line"><span data-reveal="rise" data-delay="120">Cette page</span></span>
+          <span class="line"><span class="outline" data-reveal="rise" data-delay="240">reste dans</span></span>
+          <span class="line"><span class="shimmer" data-reveal="rise" data-delay="360">l'ombre.</span></span>
+        </h1>
+        <div class="head-foot">
+          <p class="lead page-hero__lead" data-reveal="up" data-delay="520">La page que vous cherchez n'existe pas ou a été déplacée. Revenez à l'accueil ou parlez-nous directement de votre projet.</p>
+          <div class="btn-row" data-reveal="up" data-delay="640">
+            <a class="btn btn--gold" href="/">Retour à l'accueil</a>
+            <a class="btn btn--ghost" href="/formules.html#contact">Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a href="/"><img src="/assets/img/logo-blanc.png" alt="Studio Akari — accueil" width="121" height="44" loading="lazy"></a>
+          <p>Révéler ce qui vous rend unique. Agence de production photo et vidéo à Poitiers et ses alentours.</p>
+        </div>
+        <div class="site-footer__cols">
+          <nav class="site-footer__col" aria-labelledby="footer-nav">
+            <h2 id="footer-nav">Navigation</h2>
+            <a href="/index.html#studio">Le studio</a>
+            <a href="/index.html#prestations">Prestations</a>
+            <a href="/clients.html#immobilier">Immobilier</a>
+            <a href="/clients.html#entreprises">Entreprises</a>
+            <a href="/clients.html#realisations">Réalisations</a>
+            <a href="/formules.html">Formules</a>
+          </nav>
+          <div class="site-footer__col">
+            <h2>Contact</h2>
+            <a href="/formules.html#contact">Demander un devis</a>
+            <a href="tel:+33686751438">06&nbsp;86&nbsp;75&nbsp;14&nbsp;38</a>
+            <a href="mailto:contact@studio-akari.fr">contact@studio-akari.fr</a>
+            <span>Poitiers (86)</span>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© 2026 Studio Akari. Production photo et vidéo, Poitiers.</span>
+        <div class="site-footer__legal">
+          <a href="/mentions-legales.html">Mentions légales</a>
+          <a href="/mentions-legales.html#confidentialite">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

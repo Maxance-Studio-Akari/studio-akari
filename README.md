@@ -1,8 +1,8 @@
 # Studio Akari — site vitrine
 
-Site de Studio Akari, agence de production photo et vidéo à Poitiers, réalisé à partir de la maquette Claude Design (« Studio Akari website design »).
+Site de Studio Akari, agence de production photo et vidéo à Poitiers, réalisé à partir de la maquette Claude Design (« Studio Akari website design »). Adresse prévue : **https://studio-akari.fr**, hébergement **OVHcloud**.
 
-Le site est **statique** : de simples fichiers HTML, CSS et JavaScript, sans outil de compilation ni dépendance. Il peut être hébergé n'importe où (GitHub Pages, Netlify, OVHcloud, o2switch…).
+Le site est **statique** : de simples fichiers HTML, CSS et JavaScript, sans outil de compilation ni dépendance.
 
 ## Pages
 
@@ -10,8 +10,9 @@ Le site est **statique** : de simples fichiers HTML, CSS et JavaScript, sans out
 | --- | --- |
 | `index.html` | Accueil / Le studio : hero, bandeau des savoir-faire, « 明かり », prestations vidéo et photo, méthode |
 | `clients.html` | Clients & réalisations : immobilier, entreprises & PME, formats, galerie filtrable |
-| `formules.html` | Formules Signature et formulaire de demande de devis |
-| `mentions-legales.html` | Mentions légales et politique de confidentialité (à compléter) |
+| `formules.html` | Formules Signature (sur devis) et formulaire de demande de devis |
+| `mentions-legales.html` | Mentions légales et politique de confidentialité |
+| `404.html` | Page affichée pour une adresse inexistante |
 
 ## Organisation des fichiers
 
@@ -22,43 +23,79 @@ assets/
   js/contact.js      Formulaire de devis (page formules.html uniquement)
   fonts/             Polices Archivo et Noto Serif JP, hébergées avec le site
   img/               Logo, icônes et image de partage sur les réseaux sociaux
-favicon.ico, robots.txt, sitemap.xml
+.htaccess            Réglages du serveur OVH : https, redirection www, page 404, cache
+favicon.ico, robots.txt, sitemap.xml, site.webmanifest
 ```
+
+## Reste à faire avant la mise en ligne
+
+- [ ] **Mentions légales** : remplacer les 7 textes entre crochets de `mentions-legales.html` (capital, ville du greffe, numéro RCS, siège social, SIRET, TVA intracommunautaire, président). Ils figurent sur l'extrait Kbis.
+- [ ] **Formspree** : créer le formulaire et coller son adresse dans `formules.html` (voir ci-dessous).
+
+Plus tard, quand vous le souhaiterez :
+
+- remplacer les photos d'illustration Unsplash par vos réalisations ;
+- ajouter vos réseaux sociaux dans le pied de page (une colonne « Suivre » est prévue par la maquette) ;
+- afficher des tarifs (aujourd'hui toutes les offres sont « Sur devis »).
 
 ## Voir le site sur son ordinateur
 
-Double-cliquez sur `index.html`. Pour un rendu identique à la mise en ligne, vous pouvez aussi lancer un petit serveur dans le dossier :
+Double-cliquez sur `index.html`. Pour un rendu identique à la mise en ligne, lancez un petit serveur dans le dossier :
 
 ```
 python3 -m http.server 8000
 ```
 
-puis ouvrir http://localhost:8000.
+puis ouvrez http://localhost:8000.
 
-## À compléter avant la mise en ligne
+## Formulaire de demande de devis (Formspree)
 
-- [ ] **Mentions légales** (`mentions-legales.html`) : remplacer les textes entre crochets (forme juridique, responsable de publication, SIRET, adresse, hébergeur, durée de conservation).
-- [ ] **Réseaux sociaux** : dans le pied de page de chaque page, remplacer les `href="#"` des liens Instagram et LinkedIn par vos adresses.
-- [ ] **Formulaire de devis** : brancher un service d'envoi (voir ci-dessous).
-- [ ] **Photos** : remplacer les photos d'illustration Unsplash par vos propres réalisations (voir ci-dessous).
-- [ ] **Nom de domaine** : le site suppose l'adresse `https://studio-akari.fr`. Si elle est différente, la remplacer dans les balises `og:` des pages, dans `robots.txt` et `sitemap.xml`.
+Tant que Formspree n'est pas branché, le bouton « Envoyer ma demande » ouvre la messagerie du visiteur avec un email pré-rempli adressé à `contact@studio-akari.fr`.
 
-## Formulaire de demande de devis
+Pour recevoir les demandes directement par email :
 
-Sans configuration, le bouton « Envoyer ma demande » ouvre la messagerie du visiteur avec un email pré-rempli adressé à `contact@studio-akari.fr`.
-
-Pour recevoir les demandes directement, sans que le visiteur ait à envoyer l'email lui-même :
-
-1. Créez un formulaire gratuit sur [Formspree](https://formspree.io) avec l'adresse `contact@studio-akari.fr`.
-2. Copiez l'adresse fournie (du type `https://formspree.io/f/abcdwxyz`).
+1. Créez un compte gratuit sur [formspree.io](https://formspree.io), puis un nouveau formulaire (*New form*) en indiquant l'adresse de réception `contact@studio-akari.fr`. Confirmez cette adresse grâce à l'email que Formspree vous envoie.
+2. Copiez l'adresse du formulaire (*endpoint*), du type `https://formspree.io/f/abcdwxyz`.
 3. Dans `formules.html`, collez-la dans l'attribut `data-endpoint` du formulaire :
    ```html
-   <form class="form" id="devis-form" method="post" data-endpoint="https://formspree.io/f/abcdwxyz" …>
+   <form class="form" id="devis-form" method="post" data-endpoint="https://formspree.io/f/abcdwxyz" data-mailto="contact@studio-akari.fr">
    ```
+4. Faites une demande de test depuis le site en ligne : le premier envoi peut demander une validation dans votre espace Formspree.
 
-Chaque demande arrive alors par email avec : nom, entreprise, email, téléphone, ville, profil, prestations, formule choisie, mode de contact, créneau de rappel et description du projet. Un champ piège invisible filtre les robots.
+Chaque demande arrive par email avec : nom, entreprise, email, téléphone, ville, profil, prestations, formule choisie, mode de contact, créneau de rappel et description du projet. Le bouton « Répondre » de votre messagerie répond directement au client. Un champ piège invisible filtre les robots.
 
 Les liens des autres pages pré-remplissent le formulaire : `formules.html?service=video#contact`, `?service=photo`, `?secteur=immobilier`, `?secteur=entreprise`, `?formule=production`, `?formule=reportage`, `?formule=complete`.
+
+## Mise en ligne sur OVHcloud
+
+### 1. Vérifier l'hébergement et le certificat HTTPS
+
+Dans l'espace client OVHcloud, rubrique *Web Cloud* › *Hébergements* › votre hébergement :
+
+- onglet **Multisite** : `studio-akari.fr` et `www.studio-akari.fr` doivent pointer vers le dossier `www`, avec la colonne **SSL** activée ;
+- onglet **Informations générales** : le certificat SSL doit être actif (le certificat Let's Encrypt est inclus).
+
+⚠️ Le fichier `.htaccess` redirige tout le trafic vers `https://studio-akari.fr`. Si le certificat HTTPS n'est pas encore actif, le site sera inaccessible : attendez qu'il le soit avant d'envoyer ce fichier.
+
+### 2. Envoyer les fichiers par FTP
+
+1. Onglet **FTP - SSH** : notez le *serveur FTP* (du type `ftp.clusterXXX.hosting.ovh.net`) et l'*identifiant* ; définissez un mot de passe si besoin.
+2. Installez [FileZilla](https://filezilla-project.org) et connectez-vous avec ces informations (port 21).
+3. Ouvrez le dossier `www` sur le serveur et envoyez-y :
+   - `index.html`, `clients.html`, `formules.html`, `mentions-legales.html`, `404.html`
+   - le dossier `assets`
+   - `favicon.ico`, `robots.txt`, `sitemap.xml`, `site.webmanifest`
+   - `.htaccess` (fichier caché : dans FileZilla, vérifiez qu'il apparaît bien côté serveur après l'envoi)
+4. Remplacez le fichier `index.html` d'OVH s'il existe, mais **ne supprimez pas** le fichier `.ovhconfig` présent dans `www`.
+5. Inutile d'envoyer `README.md`.
+
+Ouvrez ensuite https://studio-akari.fr : vérifiez la navigation, le formulaire, et qu'une adresse inventée (ex. https://studio-akari.fr/test) affiche bien la page 404.
+
+### 3. Après la mise en ligne
+
+- Déclarez le site dans [Google Search Console](https://search.google.com/search-console) et soumettez `https://studio-akari.fr/sitemap.xml`.
+- Créez la fiche [Google Business Profile](https://www.google.com/business/) de Studio Akari (Poitiers) en y indiquant l'adresse du site : c'est elle qui fait apparaître le studio dans les recherches locales et sur Google Maps.
+- Une fois le site vérifié en https, vous pouvez activer la ligne `Strict-Transport-Security` (commentée) dans `.htaccess`.
 
 ## Remplacer les photos
 
@@ -76,11 +113,3 @@ Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux cou
 - Les couleurs de la charte (or `#D6B86B`, or foncé `#C79B47`, noirs `#1A1A1A` / `#232323`) sont définies en haut de `assets/css/style.css`.
 - Les textes se modifient directement dans les fichiers HTML.
 - Les animations respectent le réglage « réduire les animations » de l'appareil du visiteur.
-
-## Mise en ligne
-
-**GitHub Pages** : dans les paramètres du dépôt, rubrique *Pages*, choisissez *Deploy from a branch*, la branche principale et le dossier `/ (root)`. Le nom de domaine `studio-akari.fr` se renseigne dans la même rubrique (*Custom domain*).
-
-**Netlify** : glissez-déposez le dossier du site sur https://app.netlify.com/drop.
-
-**Hébergeur classique (OVHcloud, o2switch…)** : envoyez tout le contenu du dossier par FTP à la racine du site.
