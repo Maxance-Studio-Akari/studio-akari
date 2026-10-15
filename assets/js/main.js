@@ -88,7 +88,12 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+    // Dans une zone [data-intro] (haut de l'accueil), tout s'anime dès le chargement :
+    // les éléments posés en bas de l'écran (« Défiler », carte) n'attendent pas un défilement.
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      if (el.closest('[data-intro]')) play(el);
+      else io.observe(el);
+    });
 
     reveal.observe = function (el) {
       el.classList.remove('is-revealed');
