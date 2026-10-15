@@ -257,8 +257,6 @@
       function failed() {
         // Photo indisponible : la scène lumineuse reste affichée à sa place.
         img.hidden = true;
-        var credit = fig.querySelector('.credit');
-        if (credit) credit.hidden = true;
         buildScene(scene);
       }
 

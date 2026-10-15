@@ -485,26 +485,8 @@ a:hover { color: var(--gold); }
 @media (max-width: 699.98px) {
   .media > img { object-position: var(--pos-sm, var(--pos, 50% 50%)); }
 }
-/* Le crédit n'apparaît qu'avec la photo qu'il attribue */
-.js .media > img:not(.is-loaded) ~ .credit { display: none; }
 .media > .scene { position: absolute; inset: 0; }
 
-.credit {
-  position: absolute;
-  left: 6px; bottom: 6px;
-  max-width: calc(100% - 12px);
-  padding: 3px 7px;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  font: 10px/1.2 system-ui, -apple-system, sans-serif;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-}
-.credit a:hover { color: #fff; text-decoration: underline; }
 
 .tag {
   position: absolute;

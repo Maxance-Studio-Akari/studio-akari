@@ -29,11 +29,10 @@ favicon.ico, robots.txt, sitemap.xml, site.webmanifest
 
 ## État du site
 
-Le site est prêt à être mis en ligne : mentions légales complètes (d'après le Kbis), formulaire branché sur Formspree, réglages OVH.
+Le site est prêt à être mis en ligne : 11 photos du studio en place, mentions légales complètes (d'après le Kbis), formulaire branché sur Formspree, réglages OVH.
 
 Plus tard, quand vous le souhaiterez :
 
-- remplacer la dernière photo d'illustration Unsplash (galerie, « Produit ») par une réalisation ;
 - ajouter vos réseaux sociaux dans le pied de page (une colonne « Suivre » est prévue par la maquette) ;
 - afficher des tarifs (aujourd'hui toutes les offres sont « Sur devis »).
 
@@ -109,15 +108,13 @@ Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusie
 | Clients — galerie « Drone » | `drone-demeure-*.jpg` |
 | Clients — galerie « Entreprise » | `film-entreprise-*.jpg` |
 | Clients — galerie « Événementiel » | `evenement-reception-*.jpg` |
-
-La dernière image de la galerie (« Produit ») est encore une illustration Unsplash, avec le nom de son auteur affiché en bas à gauche.
+| Clients — galerie « Produit » | `produit-parfum-*.jpg` |
 
 Pour changer une photo :
 
 1. Exportez-la en JPG (2000 px de large environ pour les grandes images, 1200 px pour les autres) dans `assets/img/photos/`.
 2. Dans la page, remplacez le chemin dans les attributs `src` et `srcset` de la balise `<img>` correspondante (ou supprimez `srcset` et ne gardez que `src`).
-3. Si l'image remplacée venait d'Unsplash, supprimez la ligne `<figcaption class="credit">…</figcaption>` juste en dessous.
-4. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche).
+3. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche). Un second réglage `--pos-sm` s'applique uniquement aux téléphones (utilisé pour la photo plein écran de l'accueil).
 
 Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux couleurs du studio s'affiche à sa place, comme dans la maquette.
 
