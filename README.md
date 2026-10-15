@@ -123,3 +123,4 @@ Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux cou
 - Les couleurs de la charte (or `#D6B86B`, or foncé `#C79B47`, noirs `#1A1A1A` / `#232323`) sont définies en haut de `assets/css/style.css`.
 - Les textes se modifient directement dans les fichiers HTML.
 - Les animations respectent le réglage « réduire les animations » de l'appareil du visiteur.
+- Après une modification de `style.css`, `main.js` ou `contact.js`, changez le numéro `?v=…` qui suit leur nom dans les pages HTML (par exemple la date du jour) : les visiteurs récupèrent ainsi la nouvelle version au lieu de celle gardée en mémoire par leur navigateur.
