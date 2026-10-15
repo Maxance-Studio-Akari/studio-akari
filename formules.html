@@ -152,13 +152,14 @@
 
           <div class="contact__panel" data-reveal="up" data-delay="200">
             <!--
-              ENVOI DU FORMULAIRE
-              - data-endpoint vide : à l'envoi, la messagerie du visiteur s'ouvre avec la demande pré-remplie
-                adressée à contact@studio-akari.fr.
-              - Pour recevoir les demandes directement par email, collez dans data-endpoint l'adresse
-                fournie par un service de formulaire (ex. https://formspree.io/f/xxxxxxx). Voir le README.
+              ENVOI DU FORMULAIRE — Formspree (formulaire « xrpeoqlb »)
+              - Avec JavaScript (cas normal) : contact.js vérifie les champs puis envoie la demande
+                en arrière-plan à l'adresse data-endpoint et affiche le message de remerciement.
+              - Sans JavaScript : le navigateur envoie directement le formulaire à l'adresse action.
+              - Si data-endpoint est vidé, l'envoi se fait par la messagerie du visiteur (data-mailto).
+              Les demandes arrivent sur contact@studio-akari.fr ; « Répondre » écrit directement au client.
             -->
-            <form class="form" id="devis-form" method="post" data-endpoint="" data-mailto="contact@studio-akari.fr">
+            <form class="form" id="devis-form" action="https://formspree.io/f/xrpeoqlb" method="post" data-endpoint="https://formspree.io/f/xrpeoqlb" data-mailto="contact@studio-akari.fr">
               <input type="hidden" name="_subject" value="Nouvelle demande de devis — Studio Akari">
               <input type="hidden" name="formule" value="">
               <div class="hp" aria-hidden="true">

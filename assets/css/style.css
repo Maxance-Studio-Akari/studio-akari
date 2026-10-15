@@ -1161,4 +1161,3 @@ a:hover { color: var(--gold); }
 .legal ul { margin: 14px 0 0; padding-left: 20px; }
 .legal strong { color: var(--white); font-weight: 600; }
 .legal a { color: var(--gold); text-decoration: underline; }
-.todo { color: var(--gold); font-style: normal; background: rgba(214, 184, 107, 0.1); padding: 0 4px; }

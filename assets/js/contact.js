@@ -1,7 +1,7 @@
 /* Studio Akari — formulaire de demande de devis (page Formules & contact).
    - pré-remplissage depuis les liens des autres pages (?service=, ?formule=, ?secteur=)
    - choix d'une formule Signature depuis les cartes
-   - validation, puis envoi vers le service configuré dans data-endpoint,
+   - validation, puis envoi en arrière-plan à Formspree (adresse dans data-endpoint),
      ou ouverture de la messagerie du visiteur si aucun service n'est configuré. */
 (function () {
   'use strict';
@@ -201,12 +201,24 @@
     var endpoint = (form.getAttribute('data-endpoint') || '').trim();
     if (!endpoint) { openMail(); showSuccess(true); return; }
 
+    // Les prestations cochées sont regroupées sur une seule ligne dans l'email reçu.
+    var data = new FormData(form);
+    var prestations = data.getAll('prestations');
+    data.delete('prestations');
+    if (prestations.length) data.append('prestations', prestations.join(', '));
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Envoi en cours…';
-    fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+    fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
       .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        showSuccess(false);
+        if (res.ok) return showSuccess(false);
+        return res.json().catch(function () { return {}; }).then(function (body) {
+          // Formspree répond { errors: [{ field, message }] } : une adresse refusée s'affiche sous son champ.
+          var badEmail = (body.errors || []).some(function (er) { return er.field === 'email'; });
+          if (!badEmail) throw new Error('HTTP ' + res.status);
+          setError('email', 'Adresse email invalide.');
+          form.elements.email.focus();
+        });
       })
       .catch(showStatus)
       .then(function () {

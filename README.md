@@ -27,10 +27,9 @@ assets/
 favicon.ico, robots.txt, sitemap.xml, site.webmanifest
 ```
 
-## Reste à faire avant la mise en ligne
+## État du site
 
-- [ ] **Mentions légales** : remplacer les 7 textes entre crochets de `mentions-legales.html` (capital, ville du greffe, numéro RCS, siège social, SIRET, TVA intracommunautaire, président). Ils figurent sur l'extrait Kbis.
-- [ ] **Formspree** : créer le formulaire et coller son adresse dans `formules.html` (voir ci-dessous).
+Le site est prêt à être mis en ligne : mentions légales complètes (d'après le Kbis), formulaire branché sur Formspree, réglages OVH.
 
 Plus tard, quand vous le souhaiterez :
 
@@ -50,19 +49,16 @@ puis ouvrez http://localhost:8000.
 
 ## Formulaire de demande de devis (Formspree)
 
-Tant que Formspree n'est pas branché, le bouton « Envoyer ma demande » ouvre la messagerie du visiteur avec un email pré-rempli adressé à `contact@studio-akari.fr`.
+Le formulaire de `formules.html` est relié au formulaire Formspree `xrpeoqlb` (`https://formspree.io/f/xrpeoqlb`) :
 
-Pour recevoir les demandes directement par email :
+- **avec JavaScript** (cas normal), `assets/js/contact.js` vérifie les champs, envoie la demande en arrière-plan et affiche le message « Merci … » sans quitter la page ;
+- **sans JavaScript**, le navigateur envoie directement le formulaire à Formspree (attribut `action`).
 
-1. Créez un compte gratuit sur [formspree.io](https://formspree.io), puis un nouveau formulaire (*New form*) en indiquant l'adresse de réception `contact@studio-akari.fr`. Confirmez cette adresse grâce à l'email que Formspree vous envoie.
-2. Copiez l'adresse du formulaire (*endpoint*), du type `https://formspree.io/f/abcdwxyz`.
-3. Dans `formules.html`, collez-la dans l'attribut `data-endpoint` du formulaire :
-   ```html
-   <form class="form" id="devis-form" method="post" data-endpoint="https://formspree.io/f/abcdwxyz" data-mailto="contact@studio-akari.fr">
-   ```
-4. Faites une demande de test depuis le site en ligne : le premier envoi peut demander une validation dans votre espace Formspree.
+Chaque demande arrive sur `contact@studio-akari.fr` avec : nom, entreprise, email, téléphone, ville, profil, prestations, formule choisie, mode de contact, créneau de rappel et description du projet. Le bouton « Répondre » de votre messagerie écrit directement au client. Le champ piège `_gotcha` filtre les robots.
 
-Chaque demande arrive par email avec : nom, entreprise, email, téléphone, ville, profil, prestations, formule choisie, mode de contact, créneau de rappel et description du projet. Le bouton « Répondre » de votre messagerie répond directement au client. Un champ piège invisible filtre les robots.
+**Premier test après la mise en ligne** : envoyez une demande depuis https://studio-akari.fr/formules.html. Si elle n'arrive pas, regardez dans votre espace Formspree (onglet *Submissions*), puis vos courriers indésirables. Si le site affiche « L'envoi n'a pas abouti », vérifiez dans les réglages du formulaire Formspree que la protection reCAPTCHA est désactivée : elle peut bloquer les envois faits en arrière-plan.
+
+Pour changer de formulaire Formspree, remplacez `xrpeoqlb` dans les attributs `action` et `data-endpoint` de la balise `<form>`. Si `data-endpoint` est vidé, le bouton ouvre la messagerie du visiteur avec un email pré-rempli.
 
 Les liens des autres pages pré-remplissent le formulaire : `formules.html?service=video#contact`, `?service=photo`, `?secteur=immobilier`, `?secteur=entreprise`, `?formule=production`, `?formule=reportage`, `?formule=complete`.
 
