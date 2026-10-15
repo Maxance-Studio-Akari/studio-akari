@@ -81,37 +81,37 @@
   </header>
 
   <main id="contenu">
-    <!-- 01 Accueil -->
-    <section class="hero" data-spotlight>
-      <div class="glows glows--hero" aria-hidden="true"><span></span><span></span></div>
+    <!-- 01 Accueil : photo plein écran derrière le titre -->
+    <section class="hero hero--full" data-spotlight>
+      <figure class="media hero__bg">
+        <div class="scene" data-scene="beam" aria-hidden="true"></div>
+        <img src="assets/img/photos/tournage-equipe-1200.jpg"
+             srcset="assets/img/photos/tournage-equipe-800.jpg 800w,
+                     assets/img/photos/tournage-equipe-1200.jpg 1200w,
+                     assets/img/photos/tournage-equipe-1672.jpg 1672w"
+             sizes="(max-aspect-ratio: 4/3) 1672px, 100vw" width="1672" height="941" alt="Équipe de tournage filmant une scène dans un appartement haussmannien baigné de lumière" fetchpriority="high" style="--pos: 45% 40%; --pos-sm: 38% 50%">
+      </figure>
       <div class="spotlight" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <div class="hero__top" data-reveal="fade">
-          <span class="eyebrow"><span class="eyebrow-line" data-reveal="line" data-delay="200"></span>Production photo &amp; vidéo</span>
-          <span class="hero__area">Poitiers et ses alentours</span>
-        </div>
-        <h1 class="display display--hero">
-          <span class="line"><span data-reveal="rise" data-delay="120">Révéler</span></span>
-          <span class="line"><span class="outline" data-reveal="rise" data-delay="240">ce qui vous rend</span></span>
-          <span class="line"><span class="shimmer" data-reveal="rise" data-delay="360">unique.</span></span>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <div class="eyebrow hero__eyebrow" data-reveal="fade"><span class="eyebrow-line" data-reveal="line" data-delay="200"></span>Production photo &amp; vidéo — Poitiers</div>
+        <h1 class="display display--full">
+          <span class="line"><span data-reveal="rise" data-delay="120">Révéler <span class="outline">ce qui</span></span></span>
+          <span class="line"><span data-reveal="rise" data-delay="260"><span class="outline">vous rend</span> <span class="shimmer">unique.</span></span></span>
         </h1>
-        <div class="head-foot">
-          <p class="lead hero__lead" data-reveal="up" data-delay="520">Studio Akari conçoit et réalise des photos et des vidéos professionnelles pour les agents immobiliers, les PME et les entreprises de tous secteurs, à Poitiers et dans ses alentours.</p>
-          <div class="btn-row" data-reveal="up" data-delay="640">
-            <a class="btn btn--gold" href="formules.html#contact">Demander un devis</a>
-            <a class="btn btn--ghost" href="#prestations">Nos prestations</a>
+        <div class="hero__row">
+          <div class="scroll-cue" data-reveal="fade" data-delay="900" aria-hidden="true">
+            <span class="scroll-cue__track"><span class="scroll-cue__bar"></span></span>
+            <span>Défiler</span>
+          </div>
+          <div class="hero__card" data-reveal="up" data-delay="520">
+            <p>Studio Akari conçoit et réalise des photos et des vidéos professionnelles pour les agents immobiliers, les PME et les entreprises de tous secteurs, à Poitiers et dans ses alentours.</p>
+            <div class="btn-row">
+              <a class="btn btn--gold" href="formules.html#contact">Demander un devis</a>
+              <a class="btn btn--ghost" href="#prestations">Nos prestations</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container hero__media">
-        <figure class="media media--hero" data-reveal="clip" data-delay="300">
-          <div class="scene" data-scene="beam" aria-hidden="true"></div>
-          <img src="assets/img/photos/tournage-equipe-1200.jpg"
-               srcset="assets/img/photos/tournage-equipe-800.jpg 800w,
-                       assets/img/photos/tournage-equipe-1200.jpg 1200w,
-                       assets/img/photos/tournage-equipe-1672.jpg 1672w"
-               sizes="(min-width: 1280px) 1136px, 100vw" width="1672" height="941" alt="Équipe de tournage filmant une scène dans un appartement haussmannien baigné de lumière" fetchpriority="high" style="--pos: 50% 40%">
-        </figure>
       </div>
     </section>
 

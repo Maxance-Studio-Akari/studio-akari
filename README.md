@@ -33,7 +33,7 @@ Le site est prêt à être mis en ligne : mentions légales complètes (d'après
 
 Plus tard, quand vous le souhaiterez :
 
-- remplacer les six photos d'illustration Unsplash de la galerie par vos réalisations ;
+- remplacer la dernière photo d'illustration Unsplash (galerie, « Produit ») par une réalisation ;
 - ajouter vos réseaux sociaux dans le pied de page (une colonne « Suivre » est prévue par la maquette) ;
 - afficher des tarifs (aujourd'hui toutes les offres sont « Sur devis »).
 
@@ -99,13 +99,18 @@ Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusie
 
 | Emplacement | Fichiers |
 | --- | --- |
-| Accueil — grande image sous le titre | `tournage-equipe-*.jpg` |
+| Accueil — photo plein écran derrière « Révéler ce qui vous rend unique » | `tournage-equipe-*.jpg` |
 | Accueil — « Le studio » (format portrait) | `coulisses-preparation-*.jpg` |
 | Accueil — carte « Production vidéo » | `tournage-interview-*.jpg` |
 | Accueil — carte « Reportage photo » | `reportage-interieur-*.jpg` |
 | Clients — bandeau « L'immobilier, notre terrain d'expertise » | `presentation-clients-*.jpg` |
+| Clients — galerie « Immobilier » | `interieur-salon-*.jpg` |
+| Clients — galerie « Portrait » | `portrait-bureau-*.jpg` |
+| Clients — galerie « Drone » | `drone-demeure-*.jpg` |
+| Clients — galerie « Entreprise » | `film-entreprise-*.jpg` |
+| Clients — galerie « Événementiel » | `evenement-reception-*.jpg` |
 
-Les six images de la galerie « Réalisations » (page Clients) sont encore des illustrations Unsplash, avec le nom de leur auteur affiché en bas à gauche.
+La dernière image de la galerie (« Produit ») est encore une illustration Unsplash, avec le nom de son auteur affiché en bas à gauche.
 
 Pour changer une photo :
 

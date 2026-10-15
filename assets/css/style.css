@@ -309,7 +309,6 @@ a:hover { color: var(--gold); }
   font-family: var(--font-display);
   font-weight: 700;
 }
-.display--hero { font-size: clamp(56px, 9.6vw, 152px); line-height: 0.92; letter-spacing: -0.045em; }
 .display--page { font-size: clamp(48px, 7vw, 112px); line-height: 0.94; letter-spacing: -0.045em; }
 .display--section { font-size: clamp(44px, 5.8vw, 88px); line-height: 0.96; letter-spacing: -0.04em; }
 
@@ -482,6 +481,10 @@ a:hover { color: var(--gold); }
   transition: opacity .6s ease;
 }
 .js .media > img:not(.is-loaded) { opacity: 0; }
+/* Cadrage propre aux petits écrans : --pos-sm dans l'attribut style de l'image */
+@media (max-width: 699.98px) {
+  .media > img { object-position: var(--pos-sm, var(--pos, 50% 50%)); }
+}
 /* Le crédit n'apparaît qu'avec la photo qu'il attribue */
 .js .media > img:not(.is-loaded) ~ .credit { display: none; }
 .media > .scene { position: absolute; inset: 0; }
@@ -545,27 +548,81 @@ a:hover { color: var(--gold); }
   align-items: end;
 }
 
-/* ---------- Accueil : hero ---------- */
+/* ---------- Accueil : hero plein écran ---------- */
 
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
-.hero__inner { padding-top: clamp(72px, 8vw, 120px); padding-bottom: clamp(48px, 5vw, 72px); }
-.hero__top {
+.hero--full {
+  min-height: max(660px, calc(100vh - var(--header-h)));
+  min-height: max(660px, calc(100svh - var(--header-h)));
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: clamp(40px, 5vw, 64px);
+  align-items: flex-end;
+  background: var(--ink-deep);
 }
-.hero__area { color: var(--muted); }
-.hero__lead { max-width: 540px; }
+.hero__bg { position: absolute; inset: 0; background: var(--ink-deep); }
+
+/* Assombrit la photo pour garder le titre lisible (texte aligné à gauche, bas de page plus dense) */
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(18, 18, 18, 0.6) 0%, rgba(18, 18, 18, 0.2) 55%, rgba(18, 18, 18, 0) 100%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.35) 0%, rgba(18, 18, 18, 0.45) 45%, rgba(18, 18, 18, 0.94) 100%);
+}
+
+.hero__content {
+  width: 100%;
+  padding-top: 160px;
+  padding-bottom: clamp(40px, 5vw, 64px);
+  pointer-events: none;
+}
+.hero__eyebrow { margin-bottom: 28px; }
+.display--full { font-size: clamp(52px, 8.6vw, 136px); line-height: 0.92; letter-spacing: -0.045em; }
+
+.hero__row {
+  margin-top: clamp(40px, 5vw, 64px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.scroll-cue {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scroll-cue__track { position: relative; width: 1px; height: 56px; background: rgba(255, 255, 255, 0.2); overflow: hidden; }
+.scroll-cue__bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 1px; height: 50%;
+  background: var(--gold);
+  animation: akariScrollcue 2.2s cubic-bezier(.6, 0, .2, 1) infinite;
+}
+@keyframes akariScrollcue { from { transform: translateY(-100%); } to { transform: translateY(200%); } }
+
+.hero__card {
+  pointer-events: auto;
+  flex: 0 1 560px;
+  padding: clamp(28px, 3.2vw, 44px);
+  background: rgba(20, 20, 20, 0.35);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.hero__card p { margin: 0; font-size: clamp(17px, 1.35vw, 19px); line-height: 1.65; color: #E4DFD6; text-wrap: pretty; }
+.hero__card .btn-row { margin-top: 24px; }
+
+/* Marge basse des bandeaux image pleine largeur (page Clients) */
 .hero__media { padding-bottom: clamp(72px, 8vw, 120px); }
-/* largeur explicite : sans elle, la hauteur minimale élargit l'image au-delà de l'écran sur mobile */
-.media--hero { width: 100%; aspect-ratio: 21 / 9; min-height: 260px; background: var(--ink-deep); }
 
 /* ---------- Bandeau défilant ---------- */
 
