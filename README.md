@@ -33,7 +33,7 @@ Le site est prêt à être mis en ligne : mentions légales complètes (d'après
 
 Plus tard, quand vous le souhaiterez :
 
-- remplacer les photos d'illustration Unsplash par vos réalisations ;
+- remplacer les six photos d'illustration Unsplash de la galerie par vos réalisations ;
 - ajouter vos réseaux sociaux dans le pied de page (une colonne « Suivre » est prévue par la maquette) ;
 - afficher des tarifs (aujourd'hui toutes les offres sont « Sur devis »).
 
@@ -93,14 +93,26 @@ Ouvrez ensuite https://studio-akari.fr : vérifiez la navigation, le formulaire,
 - Créez la fiche [Google Business Profile](https://www.google.com/business/) de Studio Akari (Poitiers) en y indiquant l'adresse du site : c'est elle qui fait apparaître le studio dans les recherches locales et sur Google Maps.
 - Une fois le site vérifié en https, vous pouvez activer la ligne `Strict-Transport-Security` (commentée) dans `.htaccess`.
 
-## Remplacer les photos
+## Photos du site
 
-Les photos actuelles sont des illustrations Unsplash, chargées depuis Unsplash avec le nom de leur auteur affiché en bas à gauche. Pour mettre vos propres images :
+Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusieurs largeurs (le navigateur charge la plus adaptée à l'écran) :
 
-1. Exportez vos photos en JPG (environ 2000 px de large pour les grandes images, 1200 px pour les autres) et placez-les dans `assets/img/` (par exemple `assets/img/hero.jpg`).
-2. Dans la page, remplacez dans la balise `<img>` correspondante l'attribut `src` par le chemin de votre photo et supprimez l'attribut `srcset`.
-3. Supprimez la ligne `<figcaption class="credit">…</figcaption>` juste en dessous (le crédit Unsplash n'a plus lieu d'être).
-4. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 70% 50%` davantage la droite).
+| Emplacement | Fichiers |
+| --- | --- |
+| Accueil — grande image sous le titre | `tournage-equipe-*.jpg` |
+| Accueil — « Le studio » (format portrait) | `coulisses-preparation-*.jpg` |
+| Accueil — carte « Production vidéo » | `tournage-interview-*.jpg` |
+| Accueil — carte « Reportage photo » | `reportage-interieur-*.jpg` |
+| Clients — bandeau « L'immobilier, notre terrain d'expertise » | `presentation-clients-*.jpg` |
+
+Les six images de la galerie « Réalisations » (page Clients) sont encore des illustrations Unsplash, avec le nom de leur auteur affiché en bas à gauche.
+
+Pour changer une photo :
+
+1. Exportez-la en JPG (2000 px de large environ pour les grandes images, 1200 px pour les autres) dans `assets/img/photos/`.
+2. Dans la page, remplacez le chemin dans les attributs `src` et `srcset` de la balise `<img>` correspondante (ou supprimez `srcset` et ne gardez que `src`).
+3. Si l'image remplacée venait d'Unsplash, supprimez la ligne `<figcaption class="credit">…</figcaption>` juste en dessous.
+4. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche).
 
 Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux couleurs du studio s'affiche à sa place, comme dans la maquette.
 

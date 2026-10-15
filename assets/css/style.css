@@ -564,7 +564,8 @@ a:hover { color: var(--gold); }
 .hero__area { color: var(--muted); }
 .hero__lead { max-width: 540px; }
 .hero__media { padding-bottom: clamp(72px, 8vw, 120px); }
-.media--hero { aspect-ratio: 21 / 9; min-height: 260px; background: var(--ink-deep); }
+/* largeur explicite : sans elle, la hauteur minimale élargit l'image au-delà de l'écran sur mobile */
+.media--hero { width: 100%; aspect-ratio: 21 / 9; min-height: 260px; background: var(--ink-deep); }
 
 /* ---------- Bandeau défilant ---------- */
 
@@ -757,7 +758,7 @@ a:hover { color: var(--gold); }
 /* ---------- Clients : sections ---------- */
 
 .sector__lead { max-width: 560px; }
-.media--wide { aspect-ratio: 21 / 9; min-height: 280px; }
+.media--wide { width: 100%; aspect-ratio: 21 / 9; min-height: 280px; }
 
 .checklist { margin: 32px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line-2); }
 .checklist li {

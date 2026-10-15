@@ -22,7 +22,6 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
     (function (d) {
@@ -107,12 +106,11 @@
       <div class="container hero__media">
         <figure class="media media--hero" data-reveal="clip" data-delay="300">
           <div class="scene" data-scene="beam" aria-hidden="true"></div>
-          <img src="https://images.unsplash.com/photo-1693645325820-03c4be5b7031?auto=format&amp;fit=crop&amp;w=1600&amp;q=75"
-               srcset="https://images.unsplash.com/photo-1693645325820-03c4be5b7031?auto=format&amp;fit=crop&amp;w=800&amp;q=75 800w,
-                       https://images.unsplash.com/photo-1693645325820-03c4be5b7031?auto=format&amp;fit=crop&amp;w=1600&amp;q=75 1600w,
-                       https://images.unsplash.com/photo-1693645325820-03c4be5b7031?auto=format&amp;fit=crop&amp;w=2400&amp;q=75 2400w"
-               sizes="(min-width: 1280px) 1136px, 100vw" alt="" fetchpriority="high">
-          <figcaption class="credit">Photo de <a href="https://unsplash.com/@olegbrovchenko?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Oleg Brovchenko</a> sur <a href="https://unsplash.com/?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></figcaption>
+          <img src="assets/img/photos/tournage-equipe-1200.jpg"
+               srcset="assets/img/photos/tournage-equipe-800.jpg 800w,
+                       assets/img/photos/tournage-equipe-1200.jpg 1200w,
+                       assets/img/photos/tournage-equipe-1672.jpg 1672w"
+               sizes="(min-width: 1280px) 1136px, 100vw" width="1672" height="941" alt="Équipe de tournage filmant une scène dans un appartement haussmannien baigné de lumière" fetchpriority="high" style="--pos: 50% 40%">
         </figure>
       </div>
     </section>
@@ -168,11 +166,10 @@
         </div>
         <figure class="media media--portrait" data-reveal="clip">
           <div class="scene" data-scene="softbox" aria-hidden="true"></div>
-          <img src="https://images.unsplash.com/photo-1691491918178-8a2e68b44919?auto=format&amp;fit=crop&amp;w=1200&amp;q=75"
-               srcset="https://images.unsplash.com/photo-1691491918178-8a2e68b44919?auto=format&amp;fit=crop&amp;w=700&amp;q=75 700w,
-                       https://images.unsplash.com/photo-1691491918178-8a2e68b44919?auto=format&amp;fit=crop&amp;w=1200&amp;q=75 1200w"
-               sizes="(min-width: 1100px) 560px, 100vw" alt="" loading="lazy" decoding="async" style="--pos: 50% 62%">
-          <figcaption class="credit">Photo de <a href="https://unsplash.com/@kartabya?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Kartabya Aryal</a> sur <a href="https://unsplash.com/?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></figcaption>
+          <img src="assets/img/photos/coulisses-preparation-753.jpg"
+               srcset="assets/img/photos/coulisses-preparation-600.jpg 600w,
+                       assets/img/photos/coulisses-preparation-753.jpg 753w"
+               sizes="(min-width: 1100px) 560px, 100vw" width="753" height="941" alt="Préparation d'une production : sélection de tirages photo sur une table, objectifs et caméra à portée de main" loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
@@ -191,11 +188,10 @@
           <article id="video" class="offer" data-reveal="up" data-delay="0">
             <figure class="media media--offer" data-reveal="clip">
               <div class="scene" data-scene="flare" data-hud aria-hidden="true"></div>
-              <img src="https://images.unsplash.com/photo-1635360381874-edd74cbd57f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=75"
-                   srcset="https://images.unsplash.com/photo-1635360381874-edd74cbd57f3?auto=format&amp;fit=crop&amp;w=700&amp;q=75 700w,
-                           https://images.unsplash.com/photo-1635360381874-edd74cbd57f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=75 1200w"
-                   sizes="(min-width: 1100px) 560px, 100vw" alt="Tournage vidéo en entreprise" loading="lazy" decoding="async" style="--pos: 50% 65%">
-              <figcaption class="credit">Photo de <a href="https://unsplash.com/@jakobowens1?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Jakob Owens</a> sur <a href="https://unsplash.com/?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></figcaption>
+              <img src="assets/img/photos/tournage-interview-1200.jpg"
+               srcset="assets/img/photos/tournage-interview-800.jpg 800w,
+                       assets/img/photos/tournage-interview-1200.jpg 1200w"
+               sizes="(min-width: 1100px) 560px, 100vw" width="1672" height="941" alt="Cadreur filmant une interview au stabilisateur dans un salon lumineux" loading="lazy" decoding="async">
             </figure>
             <div class="offer__body">
               <span class="offer__num">01</span>
@@ -226,11 +222,10 @@
           <article id="photo" class="offer" data-reveal="up" data-delay="150">
             <figure class="media media--offer" data-reveal="clip">
               <div class="scene" data-scene="bokeh" data-seed="11" data-af aria-hidden="true"></div>
-              <img src="https://images.unsplash.com/photo-1641236210747-48bc43e4517f?auto=format&amp;fit=crop&amp;w=1200&amp;q=75"
-                   srcset="https://images.unsplash.com/photo-1641236210747-48bc43e4517f?auto=format&amp;fit=crop&amp;w=700&amp;q=75 700w,
-                           https://images.unsplash.com/photo-1641236210747-48bc43e4517f?auto=format&amp;fit=crop&amp;w=1200&amp;q=75 1200w"
-                   sizes="(min-width: 1100px) 560px, 100vw" alt="Reportage photo d'un intérieur" loading="lazy" decoding="async" style="--pos: 50% 42%">
-              <figcaption class="credit">Photo de <a href="https://unsplash.com/@lanamattice?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Lana Mattice</a> sur <a href="https://unsplash.com/?utm_source=studio_akari&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></figcaption>
+              <img src="assets/img/photos/reportage-interieur-1200.jpg"
+               srcset="assets/img/photos/reportage-interieur-800.jpg 800w,
+                       assets/img/photos/reportage-interieur-1200.jpg 1200w"
+               sizes="(min-width: 1100px) 560px, 100vw" width="1672" height="941" alt="Photographe réalisant le reportage d'une salle à manger lumineuse avec table en marbre" loading="lazy" decoding="async" style="--pos: 20% 50%">
             </figure>
             <div class="offer__body">
               <span class="offer__num">02</span>
