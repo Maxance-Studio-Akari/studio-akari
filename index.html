@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261015">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261104">
   <script>
     (function (d) {
       var c = d.documentElement.classList;
@@ -32,7 +32,7 @@
       setTimeout(function () { if (!window.__akari) c.remove('motion', 'js'); }, 4000);
     })(document);
   </script>
-  <script src="assets/js/main.js?v=20261015" defer></script>
+  <script src="assets/js/main.js?v=20261104" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -174,7 +174,64 @@
       </div>
     </section>
 
-    <!-- 03 Prestations -->
+    <!-- 03 Qui sommes-nous ? -->
+    <section id="equipe" class="section section--rule" aria-labelledby="equipe-titre">
+      <div class="container pad">
+        <div class="team__head">
+          <div>
+            <div class="eyebrow" data-reveal="fade"><span class="eyebrow-line" data-reveal="line" data-delay="150"></span>Qui sommes-nous&nbsp;?</div>
+            <h2 class="title mt-28" id="equipe-titre" data-reveal="blur">Trois talents, une même lumière.</h2>
+          </div>
+          <p class="lead team__lead" data-reveal="up" data-delay="140">Derrière chaque production, une équipe soudée où chacun a son rôle&nbsp;: de la vision du studio à la création des images, nous avançons ensemble pour révéler ce qui rend nos clients uniques.</p>
+        </div>
+        <ul class="team">
+          <li class="member" data-reveal="up" data-delay="0">
+            <figure class="media member__photo" data-reveal="clip" data-delay="0">
+              <img src="assets/img/photos/equipe-morgan-480.jpg"
+                   srcset="assets/img/photos/equipe-morgan-480.jpg 480w,
+                           assets/img/photos/equipe-morgan-800.jpg 800w"
+                   sizes="(min-width: 1280px) 360px, (min-width: 760px) 30vw, 100vw" width="800" height="1000" alt="Portrait de Morgan, gérant de Studio Akari" loading="lazy" decoding="async">
+            </figure>
+            <div class="member__body">
+              <span class="member__num">01</span>
+              <h3 class="member__name">Morgan</h3>
+              <p class="member__role">Gérant</p>
+              <p class="member__text">À l'initiative de Studio Akari, Morgan croit en la force qu'une agence de production photo et vidéo peut apporter à une entreprise dans son développement. Il porte la vision du studio et veille à ce que chaque projet serve la croissance de nos clients.</p>
+            </div>
+          </li>
+          <li class="member" data-reveal="up" data-delay="120">
+            <figure class="media member__photo" data-reveal="clip" data-delay="120">
+              <img src="assets/img/photos/equipe-maxance-480.jpg"
+                   srcset="assets/img/photos/equipe-maxance-480.jpg 480w,
+                           assets/img/photos/equipe-maxance-800.jpg 800w"
+                   sizes="(min-width: 1280px) 360px, (min-width: 760px) 30vw, 100vw" width="800" height="1000" alt="Portrait de Maxance, directeur des opérations de Studio Akari" loading="lazy" decoding="async">
+            </figure>
+            <div class="member__body">
+              <span class="member__num">02</span>
+              <h3 class="member__name">Maxance</h3>
+              <p class="member__role">Directeur des opérations</p>
+              <p class="member__text">Maxance donne le cap. Il réfléchit à la stratégie du studio et à la meilleure façon de satisfaire chaque client, pour que chaque production se traduise par un retour qualitatif de leur part.</p>
+            </div>
+          </li>
+          <li class="member" data-reveal="up" data-delay="240">
+            <figure class="media member__photo" data-reveal="clip" data-delay="240">
+              <img src="assets/img/photos/equipe-titouan-480.jpg"
+                   srcset="assets/img/photos/equipe-titouan-480.jpg 480w,
+                           assets/img/photos/equipe-titouan-800.jpg 800w"
+                   sizes="(min-width: 1280px) 360px, (min-width: 760px) 30vw, 100vw" width="800" height="1000" alt="Portrait de Titouan, chargé de communication de Studio Akari" loading="lazy" decoding="async">
+            </figure>
+            <div class="member__body">
+              <span class="member__num">03</span>
+              <h3 class="member__name">Titouan</h3>
+              <p class="member__role">Chargé de communication</p>
+              <p class="member__text">Titouan gère la création des contenus photo et vidéo, avec une exigence de haute qualité pour des rendus professionnels. Une pièce indispensable au sein du studio, comme chacun de ses acteurs.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 Prestations -->
     <section id="prestations" class="section section--paper">
       <div class="container pad">
         <div class="prestations__head">
@@ -256,7 +313,7 @@
       </div>
     </section>
 
-    <!-- 04 Méthode -->
+    <!-- 05 Méthode -->
     <section id="methode" class="section">
       <div class="container pad">
         <div class="eyebrow" data-reveal="fade"><span class="eyebrow-line" data-reveal="line" data-delay="150"></span>Méthode</div>
@@ -327,6 +384,7 @@
           <nav class="site-footer__col" aria-labelledby="footer-nav">
             <h2 id="footer-nav">Navigation</h2>
             <a href="index.html#studio">Le studio</a>
+            <a href="index.html#equipe">L'équipe</a>
             <a href="index.html#prestations">Prestations</a>
             <a href="clients.html#immobilier">Immobilier</a>
             <a href="clients.html#entreprises">Entreprises</a>

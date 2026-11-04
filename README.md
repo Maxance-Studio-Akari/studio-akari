@@ -8,7 +8,7 @@ Le site est **statique** : de simples fichiers HTML, CSS et JavaScript, sans out
 
 | Fichier | Page |
 | --- | --- |
-| `index.html` | Accueil / Le studio : hero, bandeau des savoir-faire, « 明かり », prestations vidéo et photo, méthode |
+| `index.html` | Accueil / Le studio : hero, bandeau des savoir-faire, « 明かり », équipe (« Qui sommes-nous ? »), prestations vidéo et photo, méthode |
 | `clients.html` | Clients & réalisations : immobilier, entreprises & PME, formats, galerie filtrable |
 | `formules.html` | Formules Signature (sur devis) et formulaire de demande de devis |
 | `mentions-legales.html` | Mentions légales et politique de confidentialité |
@@ -100,6 +100,7 @@ Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusie
 | --- | --- |
 | Accueil — photo plein écran derrière « Révéler ce qui vous rend unique » | `tournage-equipe-*.jpg` |
 | Accueil — « Le studio » (format portrait) | `coulisses-preparation-*.jpg` |
+| Accueil — « Qui sommes-nous ? » : Morgan, Maxance, Titouan (portraits 4:5) | `equipe-morgan-*.jpg`, `equipe-maxance-*.jpg`, `equipe-titouan-*.jpg` |
 | Accueil — carte « Production vidéo » | `tournage-interview-*.jpg` |
 | Accueil — carte « Reportage photo » | `reportage-interieur-*.jpg` |
 | Clients — bandeau « L'immobilier, notre terrain d'expertise » | `presentation-clients-*.jpg` |

@@ -690,6 +690,61 @@ a:hover { color: var(--gold); }
 
 .media--portrait { aspect-ratio: 4 / 5; }
 
+/* ---------- Accueil : qui sommes-nous ? ---------- */
+
+.team__head {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 32px clamp(48px, 7vw, 112px);
+  align-items: end;
+  margin-bottom: clamp(48px, 5vw, 72px);
+}
+.team__lead { max-width: 480px; }
+
+.team {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+/* Trois colonnes dès la tablette : jamais de carte seule sur une ligne */
+@media (min-width: 760px) {
+  .team { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); }
+}
+.member {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--line-2);
+  transition: border-color .3s;
+}
+.member:hover { border-color: rgba(214, 184, 107, 0.6); }
+.member__photo { aspect-ratio: 4 / 5; }
+.member__photo > img { transition: opacity .6s ease, transform 1.2s var(--ease); }
+.member:hover .member__photo > img { transform: scale(1.03); }
+.member__body { flex: 1; padding: clamp(24px, 2.6vw, 36px); }
+.member__num { font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--gold); }
+.member__name {
+  margin: 12px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 2.6vw, 36px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.member__role {
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.member__text { margin: 18px 0 0; font-size: 16px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
+
 /* ---------- Accueil : prestations ---------- */
 
 .prestations__head {
