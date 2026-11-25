@@ -540,11 +540,17 @@ a:hover { color: var(--gold); }
   align-items: flex-end;
   background: var(--ink-deep);
 }
-.hero__bg { position: absolute; inset: 0; background: var(--ink-deep); }
-/* Écrans larges mais peu hauts (portables) : cadrage --pos-short pour garder l'enseigne entière */
-@media (min-width: 700px) and (max-height: 760px) {
-  .hero__bg > img { object-position: var(--pos-short, var(--pos, 50% 50%)); }
+/* Photo du studio : elle garde ses proportions et s'efface en bas dans le fond sombre.
+   Le cadrage (plus bas) place l'enseigne « Studio Akari » du mur végétal en haut,
+   au-dessus du texte, quelle que soit la taille de l'écran. */
+.hero__bg {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  background: var(--ink-deep);
+  -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
 }
+.hero__bg > img { object-position: 50% 50%; }
 
 /* Assombrit la photo pour garder le titre lisible (texte aligné à gauche, bas de page plus dense) */
 .hero__shade {
@@ -565,6 +571,25 @@ a:hover { color: var(--gold); }
 }
 .hero__eyebrow { margin-bottom: 28px; text-shadow: 0 1px 14px rgba(0, 0, 0, 0.65); }
 .display--full { font-size: clamp(52px, min(8.6vw, 14vh), 136px); line-height: 0.92; letter-spacing: -0.045em; }
+
+/* Cadrage de la photo et début du texte, calculés d'après la position de l'enseigne
+   dans la photo d'origine (1350 × 1080 px : enseigne et halo entre y = 345 et y = 490). */
+@media (max-width: 699.98px) {
+  /* Téléphones : photo zoomée (5:7) pour que l'enseigne reste lisible */
+  .hero__bg { aspect-ratio: 5 / 7; }
+  .hero__bg > img { object-position: 20% 50%; }
+  .hero__content { padding-top: calc(63.5vw + 32px); }
+}
+@media (min-width: 700px) and (max-aspect-ratio: 5/4) {
+  /* Tablettes en portrait : photo entière */
+  .hero__bg { aspect-ratio: 1350 / 1080; }
+  .hero__content { padding-top: calc(36.3vw + 32px); }
+}
+@media (min-width: 700px) and (min-aspect-ratio: 5/4) {
+  /* Ordinateurs : le haut du plafond (280 px sur 1080) est rogné, l'enseigne passe en haut */
+  .hero__bg { top: -20.74vw; aspect-ratio: 1350 / 1080; }
+  .hero__content { padding-top: calc(15.56vw + 32px); }
+}
 
 .hero__row {
   margin-top: clamp(24px, 6vh, 64px);

@@ -119,7 +119,7 @@ Pour changer une photo :
 
 1. Exportez-la en JPG (2000 px de large environ pour les grandes images, 1200 px pour les autres) dans `assets/img/photos/`.
 2. Dans la page, remplacez le chemin dans les attributs `src` et `srcset` de la balise `<img>` correspondante (ou supprimez `srcset` et ne gardez que `src`).
-3. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche). Deux réglages complémentaires existent pour la photo plein écran de l'accueil : `--pos-sm` pour les téléphones, `--pos-short` pour les portables peu hauts.
+3. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche). `--pos-sm` permet un cadrage propre aux téléphones. La photo du haut de l'accueil est un cas à part : son cadrage est calculé dans `style.css` (section « Accueil : hero plein écran ») pour que l'enseigne Studio Akari reste visible au-dessus du titre ; si vous changez cette photo, ces valeurs sont à recalculer.
 
 Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux couleurs du studio s'affiche à sa place, comme dans la maquette.
 
