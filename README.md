@@ -106,7 +106,7 @@ Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusie
 | Accueil — « Qui sommes-nous ? » : Morgan, Maxance, Titouan (portraits 4:5) | `equipe-morgan-*.jpg`, `equipe-maxance-*.jpg`, `equipe-titouan-*.jpg` |
 | Accueil — carte « Production vidéo » | `tournage-podcast-*.jpg` |
 | Accueil — carte « Reportage photo » | `studio-plateau-*.jpg` |
-| Formules & contact — sous les coordonnées | `studio-ordinateur-*.jpg` |
+| Formules & contact — fond du formulaire (photo de l'ordinateur prolongée en haut et en bas par un reflet flouté, sans déformation ; version allongée pour téléphone) | `contact-fond-*.jpg`, `contact-fond-mobile-800.jpg` |
 | Clients — bandeau « L'immobilier, notre terrain d'expertise » | `presentation-clients-*.jpg` |
 | Clients — galerie « Immobilier » | `interieur-salon-*.jpg` |
 | Clients — galerie « Portrait » | `portrait-bureau-*.jpg` |

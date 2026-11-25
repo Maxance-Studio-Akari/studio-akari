@@ -470,7 +470,8 @@ a:hover { color: var(--gold); }
   margin: 0;
   background: var(--ink-raised);
 }
-.media > img {
+.media > img,
+.media > picture > img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -480,10 +481,12 @@ a:hover { color: var(--gold); }
   transform: scale(var(--zoom, 1));
   transition: opacity .6s ease;
 }
-.js .media > img:not(.is-loaded) { opacity: 0; }
+.js .media > img:not(.is-loaded),
+.js .media > picture > img:not(.is-loaded) { opacity: 0; }
 /* Cadrage propre aux petits écrans : --pos-sm dans l'attribut style de l'image */
 @media (max-width: 699.98px) {
-  .media > img { object-position: var(--pos-sm, var(--pos, 50% 50%)); }
+  .media > img,
+  .media > picture > img { object-position: var(--pos-sm, var(--pos, 50% 50%)); }
 }
 .media > .scene { position: absolute; inset: 0; }
 
@@ -680,11 +683,24 @@ a:hover { color: var(--gold); }
 
 /* ---------- Accueil : le studio ---------- */
 
-.studio__grid { align-items: center; }
+.studio__grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(48px, 7vw, 112px);
+}
+.studio__photo { aspect-ratio: 4 / 5; }
+/* Deux colonnes : la photo occupe toute la hauteur du texte,
+   du haut de « 明かり » jusqu'au dernier trait sous « Outils de pointe » */
+@media (min-width: 960px) {
+  .studio__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+  /* léger décalage : le haut de la photo s'aligne sur le haut du caractère 明 (≈ 0,07 em) */
+  .studio__photo { aspect-ratio: auto; margin-top: clamp(4.5px, 0.56vw, 7.8px); }
+}
 
 .kanji {
   position: relative;
-  margin: 32px 0 12px;
+  margin: 0 0 12px;
   font-family: 'Noto Serif JP', serif;
   font-weight: 300;
   font-size: clamp(64px, 8vw, 112px);
@@ -717,7 +733,6 @@ a:hover { color: var(--gold); }
 .values__title { margin: 0; font-family: var(--font-display); font-size: clamp(22px, 2vw, 28px); font-weight: 600; letter-spacing: -0.02em; }
 .values__text { margin: 8px 0 0; font-size: 16px; line-height: 1.6; color: var(--muted); }
 
-.media--portrait { aspect-ratio: 4 / 5; }
 
 /* ---------- Accueil : qui sommes-nous ? ---------- */
 
@@ -1068,7 +1083,6 @@ a:hover { color: var(--gold); }
 .contact__intro { flex: 1 1 340px; }
 .contact__lead { margin-top: 28px; max-width: 440px; }
 .contact__info { margin: 48px 0 0; max-width: 440px; display: flex; flex-direction: column; }
-.contact__photo { margin-top: 40px; max-width: 440px; aspect-ratio: 5 / 4; }
 .contact__info > * {
   display: flex;
   flex-direction: column;
@@ -1094,6 +1108,9 @@ a:hover { color: var(--gold); }
 }
 
 .contact__panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   flex: 1.5 1 480px;
   min-width: 0;
   background: rgba(35, 35, 35, 0.5);
@@ -1102,6 +1119,22 @@ a:hover { color: var(--gold); }
   border: 1px solid var(--line-2);
   padding: clamp(28px, 4vw, 56px);
 }
+
+/* Photo du studio en fond du formulaire : prolongée en haut et en bas (photo d'origine
+   nette au centre), voilée pour que les champs restent lisibles */
+.contact__bg { position: absolute; inset: 0; z-index: -1; margin: 0; }
+.contact__bg picture { display: contents; }
+.contact__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.82) 0%, rgba(20, 20, 20, 0.5) 30%, rgba(20, 20, 20, 0.5) 62%, rgba(20, 20, 20, 0.85) 100%);
+}
+/* Une version plus allongée de la photo est servie aux téléphones (balise <picture>) */
+.contact__panel .form__label { text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85); }
+.contact__panel .chip { background: rgba(18, 18, 18, 0.5); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.contact__panel .field input, .contact__panel .field textarea { background: rgba(18, 18, 18, 0.35); padding-left: 10px; padding-right: 10px; }
+.contact__panel .consent__label { text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85); }
 
 .form { display: flex; flex-direction: column; gap: 32px; }
 .form fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }

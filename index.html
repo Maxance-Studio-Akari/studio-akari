@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261125-3">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261125-4">
   <script>
     (function (d) {
       var c = d.documentElement.classList;
@@ -32,7 +32,7 @@
       setTimeout(function () { if (!window.__akari) c.remove('motion', 'js'); }, 4000);
     })(document);
   </script>
-  <script src="assets/js/main.js?v=20261125-3" defer></script>
+  <script src="assets/js/main.js?v=20261125-4" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -145,9 +145,10 @@
 
     <!-- 02 Le studio -->
     <section id="studio" class="section">
-      <div class="container pad-lg split studio__grid">
+      <div class="container pad-lg">
+        <div class="eyebrow" data-reveal="fade"><span class="eyebrow-line" data-reveal="line" data-delay="150"></span>Le studio</div>
+        <div class="studio__grid">
         <div>
-          <div class="eyebrow" data-reveal="fade"><span class="eyebrow-line" data-reveal="line" data-delay="150"></span>Le studio</div>
           <div class="kanji" lang="ja" data-reveal="blur" data-delay="100">
             <span class="kanji__glow" aria-hidden="true">明かり</span>
             <span class="kanji__text">明かり</span>
@@ -169,13 +170,14 @@
             </li>
           </ol>
         </div>
-        <figure class="media media--portrait" data-reveal="clip">
+        <figure class="media studio__photo" data-reveal="clip">
           <div class="scene" data-scene="softbox" aria-hidden="true"></div>
           <img src="assets/img/photos/studio-neon-864.jpg"
                srcset="assets/img/photos/studio-neon-600.jpg 600w,
                        assets/img/photos/studio-neon-864.jpg 864w"
-               sizes="(min-width: 1100px) 560px, 100vw" width="864" height="1080" alt="Le studio Akari : enseigne lumineuse sur mur végétal, au-dessus de la table de rendez-vous" loading="lazy" decoding="async">
+               sizes="(min-width: 960px) 560px, 100vw" width="864" height="1080" alt="Le studio Akari : enseigne lumineuse sur mur végétal, au-dessus de la table de rendez-vous" loading="lazy" decoding="async">
         </figure>
+        </div>
       </div>
     </section>
 

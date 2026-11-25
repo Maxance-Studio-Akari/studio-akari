@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261125-3">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261125-4">
   <script>
     (function (d) {
       var c = d.documentElement.classList;
@@ -32,8 +32,8 @@
       setTimeout(function () { if (!window.__akari) c.remove('motion', 'js'); }, 4000);
     })(document);
   </script>
-  <script src="assets/js/main.js?v=20261125-3" defer></script>
-  <script src="assets/js/contact.js?v=20261125-3" defer></script>
+  <script src="assets/js/main.js?v=20261125-4" defer></script>
+  <script src="assets/js/contact.js?v=20261125-4" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -202,15 +202,18 @@
               <a href="mailto:contact@studio-akari.fr"><span class="info-label">Email</span><span class="info-value">contact@studio-akari.fr</span></a>
               <div><span class="info-label">Zone d'intervention</span><span class="info-value">Poitiers et ses alentours</span></div>
             </div>
-            <figure class="media contact__photo" data-reveal="clip" data-delay="300">
-              <img src="assets/img/photos/studio-ordinateur-800.jpg"
-                   srcset="assets/img/photos/studio-ordinateur-800.jpg 800w,
-                           assets/img/photos/studio-ordinateur-1350.jpg 1350w"
-                   sizes="(min-width: 1100px) 440px, 100vw" width="1350" height="1080" alt="Au studio : ordinateur affichant le logo Studio Akari, appareil photo et boîte à lumière en arrière-plan" loading="lazy" decoding="async" style="--pos: 50% 70%">
-            </figure>
           </div>
 
           <div class="contact__panel" data-reveal="up" data-delay="200">
+            <figure class="media contact__bg">
+              <picture>
+                <source media="(max-width: 699.98px)" srcset="assets/img/photos/contact-fond-mobile-800.jpg">
+                  <img src="assets/img/photos/contact-fond-800.jpg"
+                     srcset="assets/img/photos/contact-fond-800.jpg 800w,
+                             assets/img/photos/contact-fond-1350.jpg 1350w"
+                     sizes="(min-width: 1100px) 640px, 100vw" width="1350" height="3750" alt="Au studio : ordinateur affichant le logo Studio Akari, appareil photo sur trépied et boîte à lumière" loading="lazy" decoding="async">
+              </picture>
+            </figure>
             <!--
               ENVOI DU FORMULAIRE — Formspree (formulaire « xrpeoqlb »)
               - Avec JavaScript (cas normal) : contact.js vérifie les champs puis envoie la demande
