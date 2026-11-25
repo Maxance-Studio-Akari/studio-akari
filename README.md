@@ -101,12 +101,12 @@ Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusie
 
 | Emplacement | Fichiers |
 | --- | --- |
-| Accueil — photo plein écran derrière « Révéler ce qui vous rend unique » | `tournage-equipe-*.jpg` |
+| Accueil — photo plein écran derrière « Révéler ce qui vous rend unique » (assombrie, réchauffée, avec grain) | `hero-studio-*.jpg` |
 | Accueil — « Le studio » (format portrait) | `studio-neon-*.jpg` |
 | Accueil — « Qui sommes-nous ? » : Morgan, Maxance, Titouan (portraits 4:5) | `equipe-morgan-*.jpg`, `equipe-maxance-*.jpg`, `equipe-titouan-*.jpg` |
 | Accueil — carte « Production vidéo » | `tournage-podcast-*.jpg` |
 | Accueil — carte « Reportage photo » | `studio-plateau-*.jpg` |
-| Formules & contact — sous les coordonnées | `studio-salle-*.jpg` |
+| Formules & contact — sous les coordonnées | `studio-ordinateur-*.jpg` |
 | Clients — bandeau « L'immobilier, notre terrain d'expertise » | `presentation-clients-*.jpg` |
 | Clients — galerie « Immobilier » | `interieur-salon-*.jpg` |
 | Clients — galerie « Portrait » | `portrait-bureau-*.jpg` |
@@ -119,7 +119,7 @@ Pour changer une photo :
 
 1. Exportez-la en JPG (2000 px de large environ pour les grandes images, 1200 px pour les autres) dans `assets/img/photos/`.
 2. Dans la page, remplacez le chemin dans les attributs `src` et `srcset` de la balise `<img>` correspondante (ou supprimez `srcset` et ne gardez que `src`).
-3. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche). Un second réglage `--pos-sm` s'applique uniquement aux téléphones (utilisé pour la photo plein écran de l'accueil).
+3. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche). Deux réglages complémentaires existent pour la photo plein écran de l'accueil : `--pos-sm` pour les téléphones, `--pos-short` pour les portables peu hauts.
 
 Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux couleurs du studio s'affiche à sa place, comme dans la maquette.
 
