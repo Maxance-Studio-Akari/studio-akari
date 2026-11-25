@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261104">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261125">
   <script>
     (function (d) {
       var c = d.documentElement.classList;
@@ -32,7 +32,7 @@
       setTimeout(function () { if (!window.__akari) c.remove('motion', 'js'); }, 4000);
     })(document);
   </script>
-  <script src="assets/js/main.js?v=20261104" defer></script>
+  <script src="assets/js/main.js?v=20261125" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,7 +47,12 @@
     "email": "contact@studio-akari.fr",
     "address": { "@type": "PostalAddress", "addressLocality": "Poitiers", "addressRegion": "Vienne", "addressCountry": "FR" },
     "areaServed": { "@type": "City", "name": "Poitiers" },
-    "knowsAbout": ["Production vidéo", "Reportage photo", "Prises de vue par drone", "Visite virtuelle 360°", "Plan 2D", "Vidéo générative par IA", "Photographie immobilière"]
+    "sameAs": [
+      "https://www.instagram.com/studio__akari/",
+      "https://www.facebook.com/profile.php?id=61595607336107",
+      "https://www.linkedin.com/company/studio-akari86"
+    ],
+    "knowsAbout": ["Production vidéo", "Reportage photo", "Prises de vue par drone", "Visite virtuelle 360°", "Plan 2D", "Shorts réseaux sociaux", "Film promotionnel", "Photographie immobilière"]
   }
   </script>
 </head>
@@ -122,7 +127,7 @@
           <li>Production vidéo</li><li class="marquee__dot" aria-hidden="true"></li>
           <li class="outline">Reportage photo</li><li class="marquee__dot" aria-hidden="true"></li>
           <li>Prises de vue drone</li><li class="marquee__dot" aria-hidden="true"></li>
-          <li class="outline">Vidéo générative IA</li><li class="marquee__dot" aria-hidden="true"></li>
+          <li class="outline">Shorts réseaux sociaux</li><li class="marquee__dot" aria-hidden="true"></li>
           <li>Visite virtuelle 360°</li><li class="marquee__dot" aria-hidden="true"></li>
           <li class="outline">Plan 2D</li><li class="marquee__dot" aria-hidden="true"></li>
         </ul>
@@ -130,7 +135,7 @@
           <li>Production vidéo</li><li class="marquee__dot"></li>
           <li class="outline">Reportage photo</li><li class="marquee__dot"></li>
           <li>Prises de vue drone</li><li class="marquee__dot"></li>
-          <li class="outline">Vidéo générative IA</li><li class="marquee__dot"></li>
+          <li class="outline">Shorts réseaux sociaux</li><li class="marquee__dot"></li>
           <li>Visite virtuelle 360°</li><li class="marquee__dot"></li>
           <li class="outline">Plan 2D</li><li class="marquee__dot"></li>
         </ul>
@@ -160,16 +165,16 @@
             </li>
             <li class="values__item" data-reveal="up" data-delay="240">
               <span class="values__num">03</span>
-              <div><h3 class="values__title">Outils de pointe</h3><p class="values__text">Drone, visite virtuelle 360° et vidéo générative par IA, au service de la créativité.</p></div>
+              <div><h3 class="values__title">Outils de pointe</h3><p class="values__text">Drone, visite immersive 360° Matterport, animations graphiques et effets visuels, au service de la créativité.</p></div>
             </li>
           </ol>
         </div>
         <figure class="media media--portrait" data-reveal="clip">
           <div class="scene" data-scene="softbox" aria-hidden="true"></div>
-          <img src="assets/img/photos/coulisses-preparation-753.jpg"
-               srcset="assets/img/photos/coulisses-preparation-600.jpg 600w,
-                       assets/img/photos/coulisses-preparation-753.jpg 753w"
-               sizes="(min-width: 1100px) 560px, 100vw" width="753" height="941" alt="Préparation d'une production : sélection de tirages photo sur une table, objectifs et caméra à portée de main" loading="lazy" decoding="async">
+          <img src="assets/img/photos/studio-neon-864.jpg"
+               srcset="assets/img/photos/studio-neon-600.jpg 600w,
+                       assets/img/photos/studio-neon-864.jpg 864w"
+               sizes="(min-width: 1100px) 560px, 100vw" width="864" height="1080" alt="Le studio Akari : enseigne lumineuse sur mur végétal, au-dessus de la table de rendez-vous" loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
@@ -245,68 +250,78 @@
           <article id="video" class="offer" data-reveal="up" data-delay="0">
             <figure class="media media--offer" data-reveal="clip">
               <div class="scene" data-scene="flare" data-hud aria-hidden="true"></div>
-              <img src="assets/img/photos/tournage-interview-1200.jpg"
-               srcset="assets/img/photos/tournage-interview-800.jpg 800w,
-                       assets/img/photos/tournage-interview-1200.jpg 1200w"
-               sizes="(min-width: 1100px) 560px, 100vw" width="1672" height="941" alt="Cadreur filmant une interview au stabilisateur dans un salon lumineux" loading="lazy" decoding="async">
+              <img src="assets/img/photos/tournage-podcast-800.jpg"
+               srcset="assets/img/photos/tournage-podcast-800.jpg 800w,
+                       assets/img/photos/tournage-podcast-1350.jpg 1350w"
+               sizes="(min-width: 1100px) 560px, 100vw" width="1350" height="1080" alt="Interview filmée au format podcast devant le mur végétal lumineux du studio" loading="lazy" decoding="async" style="--pos: 50% 58%">
             </figure>
             <div class="offer__body">
               <span class="offer__num">01</span>
               <h3 class="offer__title">Production vidéo</h3>
-              <p class="offer__text">Tournage et montage pris en charge de A à Z, pour des vidéos prêtes à diffuser sur votre site, vos annonces et vos réseaux sociaux.</p>
+              <p class="offer__text">Des vidéos professionnelles adaptées à votre communication, à vos réseaux sociaux et à la promotion de votre activité&nbsp;: un pack de shorts verticaux ou un film promotionnel de 1 à 3 minutes.</p>
               <div class="offer__lists">
                 <div>
                   <h4 class="offer__label">Inclus</h4>
                   <ul class="offer__list">
-                    <li>Préparation du tournage</li>
-                    <li>Tournage sur site</li>
-                    <li>Montage et étalonnage</li>
+                    <li>Préparation et captation professionnelle</li>
+                    <li>Montage, étalonnage et sound design</li>
+                    <li>Textes, sous-titres et musiques</li>
+                    <li>Livraison prête à publier</li>
                   </ul>
                 </div>
                 <div>
                   <h4 class="offer__label">En option</h4>
                   <ul class="offer__list">
-                    <li>Prises de vue drone</li>
-                    <li>Habillage et effets génératifs IA</li>
-                    <li>Sous-titrage</li>
+                    <li>Prises de vue aériennes par drone</li>
+                    <li>Shorts supplémentaires</li>
+                    <li>Adaptation 9:16 ou 16:9</li>
+                    <li>Animations graphiques et effets visuels</li>
                   </ul>
                 </div>
               </div>
-              <a class="btn btn--dark offer__cta" href="formules.html?service=video#contact">Demander un devis vidéo <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <div class="offer__actions">
+                <a class="btn btn--dark offer__cta" href="formules.html?service=video#contact">Demander un devis vidéo <span class="btn__arrow" aria-hidden="true">→</span></a>
+                <a class="offer__more" href="formules.html#offre-shorts">Voir le détail des offres</a>
+              </div>
             </div>
           </article>
 
           <article id="photo" class="offer" data-reveal="up" data-delay="150">
             <figure class="media media--offer" data-reveal="clip">
               <div class="scene" data-scene="bokeh" data-seed="11" data-af aria-hidden="true"></div>
-              <img src="assets/img/photos/reportage-interieur-1200.jpg"
-               srcset="assets/img/photos/reportage-interieur-800.jpg 800w,
-                       assets/img/photos/reportage-interieur-1200.jpg 1200w"
-               sizes="(min-width: 1100px) 560px, 100vw" width="1672" height="941" alt="Photographe réalisant le reportage d'une salle à manger lumineuse avec table en marbre" loading="lazy" decoding="async" style="--pos: 20% 50%">
+              <img src="assets/img/photos/studio-plateau-800.jpg"
+               srcset="assets/img/photos/studio-plateau-800.jpg 800w,
+                       assets/img/photos/studio-plateau-1350.jpg 1350w"
+               sizes="(min-width: 1100px) 560px, 100vw" width="1350" height="1080" alt="Plateau photo du studio : appareil sur trépied, boîtes à lumière et mur végétal au logo Studio Akari" loading="lazy" decoding="async" style="--pos: 50% 55%">
             </figure>
             <div class="offer__body">
               <span class="offer__num">02</span>
               <h3 class="offer__title">Reportage photo</h3>
-              <p class="offer__text">Un reportage réalisé sur site avec notre matériel, ou la retouche professionnelle des photos que vous nous confiez.</p>
+              <p class="offer__text">Mettez en valeur vos biens immobiliers, votre entreprise, vos produits ou votre activité grâce à des photographies professionnelles.</p>
               <div class="offer__lists">
                 <div>
                   <h4 class="offer__label">Inclus</h4>
                   <ul class="offer__list">
-                    <li>Reportage sur site avec matériel</li>
-                    <li>Retouche des images</li>
-                    <li>Ou retouche de vos photos</li>
+                    <li>Prise de vue sur place</li>
+                    <li>Jusqu'à 20 photos retouchées</li>
+                    <li>Couleurs, lumière et contrastes corrigés</li>
+                    <li>Livraison HD par lien de téléchargement</li>
                   </ul>
                 </div>
                 <div>
                   <h4 class="offer__label">En option</h4>
                   <ul class="offer__list">
-                    <li>Prises de vue drone</li>
-                    <li>Plan 2D</li>
-                    <li>Visite virtuelle Matterport 360°</li>
+                    <li>Photos supplémentaires</li>
+                    <li>Photographies aériennes par drone</li>
+                    <li>Plan 2D et visite 360° Matterport</li>
+                    <li>Valorisation de terrain par drone</li>
                   </ul>
                 </div>
               </div>
-              <a class="btn btn--dark offer__cta" href="formules.html?service=photo#contact">Demander un devis photo <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <div class="offer__actions">
+                <a class="btn btn--dark offer__cta" href="formules.html?service=photo#contact">Demander un devis photo <span class="btn__arrow" aria-hidden="true">→</span></a>
+                <a class="offer__more" href="formules.html#offre-photo">Voir le détail de l'offre</a>
+              </div>
             </div>
           </article>
         </div>
@@ -397,6 +412,12 @@
             <a href="tel:+33686751438">06&nbsp;86&nbsp;75&nbsp;14&nbsp;38</a>
             <a href="mailto:contact@studio-akari.fr">contact@studio-akari.fr</a>
             <span>Poitiers (86)</span>
+          </div>
+          <div class="site-footer__col">
+            <h2>Suivre</h2>
+            <a href="https://www.instagram.com/studio__akari/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61595607336107" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.linkedin.com/company/studio-akari86" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </div>

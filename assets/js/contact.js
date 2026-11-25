@@ -1,6 +1,6 @@
 /* Studio Akari — formulaire de demande de devis (page Formules & contact).
-   - pré-remplissage depuis les liens des autres pages (?service=, ?formule=, ?secteur=)
-   - choix d'une formule Signature depuis les cartes
+   - pré-remplissage depuis les liens des autres pages (?service=, ?offre=, ?secteur=)
+   - choix d'une offre (Reportage photo, Pack Shorts, Film promotionnel) depuis les cartes
    - validation, puis envoi en arrière-plan à Formspree (adresse dans data-endpoint),
      ou ouverture de la messagerie du visiteur si aucun service n'est configuré. */
 (function () {
@@ -10,10 +10,11 @@
   if (!form) return;
   form.noValidate = true;
 
-  var FORMULES = {
-    production: 'Signature Production',
-    reportage: 'Signature Reportage',
-    complete: 'Signature Production + Reportage'
+  // Offres de la page : libellé envoyé avec la demande et prestation cochée automatiquement
+  var OFFRES = {
+    photo: { label: 'Reportage photo', service: 'photo' },
+    shorts: { label: 'Pack Shorts / Réseaux sociaux', service: 'video' },
+    film: { label: 'Film promotionnel', service: 'video' }
   };
   var ERRORS = { nom: 'e-nom', email: 'e-email', telephone: 'e-tel', consentement: 'e-consent' };
   var PHONE = '06 86 75 14 38';
@@ -21,9 +22,8 @@
   var reduced = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
   var success = document.querySelector('[data-form-success]');
   var statusEl = form.querySelector('[data-form-status]');
-  var pill = form.querySelector('[data-formule-pill]');
-  var pillLabel = form.querySelector('[data-formule-label]');
-  var signature = form.querySelector('input[data-key="signature"]');
+  var pill = form.querySelector('[data-offre-pill]');
+  var pillLabel = form.querySelector('[data-offre-label]');
   var callOnly = form.querySelector('[data-call-only]');
   var phoneLabel = form.querySelector('[data-phone-label]');
   var submitBtn = form.querySelector('[type="submit"]');
@@ -60,25 +60,26 @@
     });
   });
 
-  /* ---------- Formule Signature ---------- */
+  /* ---------- Offre choisie ---------- */
 
-  function setFormule(key) {
-    var label = FORMULES[key] || '';
-    form.elements.formule.value = label;
-    pillLabel.textContent = label;
-    pill.hidden = !label;
-    if (label) signature.checked = true;
+  function checkService(key) {
+    var box = form.querySelector('input[name="prestations"][data-key="' + key + '"]');
+    if (box) box.checked = true;
   }
-  signature.addEventListener('change', function () { if (!signature.checked) setFormule(null); });
-  form.querySelector('[data-clear-formule]').addEventListener('click', function () {
-    setFormule(null);
-    signature.checked = false;
-  });
 
-  document.querySelectorAll('[data-formule]').forEach(function (link) {
+  function setOffre(key) {
+    var offre = OFFRES[key];
+    form.elements.offre.value = offre ? offre.label : '';
+    pillLabel.textContent = offre ? offre.label : '';
+    pill.hidden = !offre;
+    if (offre) checkService(offre.service);
+  }
+  form.querySelector('[data-clear-offre]').addEventListener('click', function () { setOffre(null); });
+
+  document.querySelectorAll('[data-offre]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      setFormule(link.getAttribute('data-formule'));
+      setOffre(link.getAttribute('data-offre'));
       document.getElementById('contact').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
     });
   });
@@ -88,9 +89,8 @@
   function readQuery() {
     var q;
     try { q = new URLSearchParams(window.location.search); } catch (e) { return; }
-    var service = form.querySelector('input[name="prestations"][data-key="' + q.get('service') + '"]');
-    if (service) service.checked = true;
-    if (FORMULES[q.get('formule')]) setFormule(q.get('formule'));
+    checkService(q.get('service'));
+    if (OFFRES[q.get('offre')]) setOffre(q.get('offre'));
     var profil = form.querySelector('input[name="profil"][data-key="' + q.get('secteur') + '"]');
     if (profil) profil.checked = true;
   }
@@ -134,7 +134,7 @@
     add('Ville du projet', val('ville'));
     add('Profil', (checked('profil')[0] || {}).value);
     add('Prestations', checked('prestations').map(function (i) { return i.value; }).join(', '));
-    add('Formule', form.elements.formule.value);
+    add('Offre', form.elements.offre.value);
     add('Contact souhaité', isCall() ? 'Rappel téléphonique (' + checked('creneau')[0].value + ')' : 'Réponse par email');
     if (val('projet')) lines.push('', 'Projet :', val('projet'));
     return lines.join('\n');
@@ -229,7 +229,7 @@
 
   success.querySelector('[data-form-reset]').addEventListener('click', function () {
     form.reset();
-    setFormule(null);
+    setOffre(null);
     Object.keys(ERRORS).forEach(function (k) { setError(k, ''); });
     applyMode();
     syncProfils();

@@ -791,7 +791,9 @@ a:hover { color: var(--gold); }
 }
 .offer__list { margin: 0; padding: 0; list-style: none; }
 .offer__list li { padding: 14px 0; border-top: 1px solid var(--paper-line); font-size: 15px; }
-.offer__cta { margin-top: 32px; align-self: flex-start; }
+.offer__actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.offer__more { font-size: 14px; font-weight: 500; color: var(--bronze); text-decoration: underline; text-underline-offset: 3px; }
+.offer__more:hover { color: var(--ink-raised); }
 
 /* ---------- Accueil : méthode ---------- */
 
@@ -972,10 +974,24 @@ a:hover { color: var(--gold); }
 .plan__name span { display: block; }
 .plan__name span + span { margin-top: 4px; }
 .plan__sig { color: transparent; -webkit-text-stroke: 1px var(--white); }
-.plan__list { flex: 1; margin: 32px 0 0; padding: 0; list-style: none; }
-.plan__list li { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line-2); font-size: 15px; }
+.plan__body { flex: 1; }
+.plan__intro { margin: 20px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.plan__label {
+  margin: 28px 0 0;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.plan__list { margin: 10px 0 0; padding: 0; list-style: none; }
+.plan__list li { display: flex; gap: 14px; padding: 11px 0; border-top: 1px solid var(--line-2); font-size: 15px; line-height: 1.45; }
 .plan__list li:last-child { border-bottom: 1px solid var(--line-2); }
-.plan__list li::before { content: "+"; color: var(--gold); }
+.plan__list li::before { content: "+"; flex: none; color: var(--gold); }
+.plan__options { margin: 8px 0 0; padding: 0; list-style: none; }
+.plan__options li { display: flex; gap: 12px; padding: 5px 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.plan__options li::before { content: "+"; flex: none; color: rgba(214, 184, 107, 0.55); }
 .plan__foot { margin-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .plan__price { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 
@@ -1023,6 +1039,7 @@ a:hover { color: var(--gold); }
 .contact__intro { flex: 1 1 340px; }
 .contact__lead { margin-top: 28px; max-width: 440px; }
 .contact__info { margin: 48px 0 0; max-width: 440px; display: flex; flex-direction: column; }
+.contact__photo { margin-top: 40px; max-width: 440px; aspect-ratio: 5 / 4; }
 .contact__info > * {
   display: flex;
   flex-direction: column;

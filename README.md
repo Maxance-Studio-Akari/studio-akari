@@ -10,7 +10,7 @@ Le site est **statique** : de simples fichiers HTML, CSS et JavaScript, sans out
 | --- | --- |
 | `index.html` | Accueil / Le studio : hero, bandeau des savoir-faire, « 明かり », équipe (« Qui sommes-nous ? »), prestations vidéo et photo, méthode |
 | `clients.html` | Clients & réalisations : immobilier, entreprises & PME, formats, galerie filtrable |
-| `formules.html` | Formules Signature (sur devis) et formulaire de demande de devis |
+| `formules.html` | Les 3 offres (Reportage photo, Pack Shorts / Réseaux sociaux, Film promotionnel — sur devis) et formulaire de demande de devis |
 | `mentions-legales.html` | Mentions légales et politique de confidentialité |
 | `404.html` | Page affichée pour une adresse inexistante |
 
@@ -29,12 +29,15 @@ favicon.ico, robots.txt, sitemap.xml, site.webmanifest
 
 ## État du site
 
-Le site est prêt à être mis en ligne : 11 photos du studio en place, mentions légales complètes (d'après le Kbis), formulaire branché sur Formspree, réglages OVH.
+Le site est prêt à être mis en ligne : photos du studio et de l'équipe en place, offres et réseaux sociaux à jour, mentions légales complètes (d'après le Kbis), formulaire branché sur Formspree, réglages OVH.
 
 Plus tard, quand vous le souhaiterez :
 
-- ajouter vos réseaux sociaux dans le pied de page (une colonne « Suivre » est prévue par la maquette) ;
-- afficher des tarifs (aujourd'hui toutes les offres sont « Sur devis »).
+- afficher des tarifs (aujourd'hui toutes les offres sont « Sur devis »), dans les cartes de `formules.html` (`<span class="plan__price">`).
+
+## Réseaux sociaux
+
+Les liens Instagram, Facebook et LinkedIn sont dans la colonne « Suivre » du pied de page de chaque page, et dans les données structurées de `index.html` (`sameAs`). Pour changer une adresse, remplacez-la partout avec la fonction « Rechercher / remplacer » de votre éditeur.
 
 ## Voir le site sur son ordinateur
 
@@ -53,13 +56,13 @@ Le formulaire de `formules.html` est relié au formulaire Formspree `xrpeoqlb` (
 - **avec JavaScript** (cas normal), `assets/js/contact.js` vérifie les champs, envoie la demande en arrière-plan et affiche le message « Merci … » sans quitter la page ;
 - **sans JavaScript**, le navigateur envoie directement le formulaire à Formspree (attribut `action`).
 
-Chaque demande arrive sur `contact@studio-akari.fr` avec : nom, entreprise, email, téléphone, ville, profil, prestations, formule choisie, mode de contact, créneau de rappel et description du projet. Le bouton « Répondre » de votre messagerie écrit directement au client. Le champ piège `_gotcha` filtre les robots.
+Chaque demande arrive sur `contact@studio-akari.fr` avec : nom, entreprise, email, téléphone, ville, profil, prestations, offre choisie, mode de contact, créneau de rappel et description du projet. Le bouton « Répondre » de votre messagerie écrit directement au client. Le champ piège `_gotcha` filtre les robots.
 
 **Premier test après la mise en ligne** : envoyez une demande depuis https://studio-akari.fr/formules.html. Si elle n'arrive pas, regardez dans votre espace Formspree (onglet *Submissions*), puis vos courriers indésirables. Si le site affiche « L'envoi n'a pas abouti », vérifiez dans les réglages du formulaire Formspree que la protection reCAPTCHA est désactivée : elle peut bloquer les envois faits en arrière-plan.
 
 Pour changer de formulaire Formspree, remplacez `xrpeoqlb` dans les attributs `action` et `data-endpoint` de la balise `<form>`. Si `data-endpoint` est vidé, le bouton ouvre la messagerie du visiteur avec un email pré-rempli.
 
-Les liens des autres pages pré-remplissent le formulaire : `formules.html?service=video#contact`, `?service=photo`, `?secteur=immobilier`, `?secteur=entreprise`, `?formule=production`, `?formule=reportage`, `?formule=complete`.
+Les liens des autres pages pré-remplissent le formulaire : `formules.html?service=video#contact`, `?service=photo`, `?secteur=immobilier`, `?secteur=entreprise`, `?offre=photo`, `?offre=shorts`, `?offre=film`.
 
 ## Mise en ligne sur OVHcloud
 
@@ -99,10 +102,11 @@ Les photos de Studio Akari sont dans `assets/img/photos/`, déclinées en plusie
 | Emplacement | Fichiers |
 | --- | --- |
 | Accueil — photo plein écran derrière « Révéler ce qui vous rend unique » | `tournage-equipe-*.jpg` |
-| Accueil — « Le studio » (format portrait) | `coulisses-preparation-*.jpg` |
+| Accueil — « Le studio » (format portrait) | `studio-neon-*.jpg` |
 | Accueil — « Qui sommes-nous ? » : Morgan, Maxance, Titouan (portraits 4:5) | `equipe-morgan-*.jpg`, `equipe-maxance-*.jpg`, `equipe-titouan-*.jpg` |
-| Accueil — carte « Production vidéo » | `tournage-interview-*.jpg` |
-| Accueil — carte « Reportage photo » | `reportage-interieur-*.jpg` |
+| Accueil — carte « Production vidéo » | `tournage-podcast-*.jpg` |
+| Accueil — carte « Reportage photo » | `studio-plateau-*.jpg` |
+| Formules & contact — sous les coordonnées | `studio-salle-*.jpg` |
 | Clients — bandeau « L'immobilier, notre terrain d'expertise » | `presentation-clients-*.jpg` |
 | Clients — galerie « Immobilier » | `interieur-salon-*.jpg` |
 | Clients — galerie « Portrait » | `portrait-bureau-*.jpg` |
