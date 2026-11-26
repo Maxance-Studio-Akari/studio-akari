@@ -310,6 +310,89 @@
     });
   }
 
+  /* ---------- Vidéos (page Clients) : lecture au clic, une seule à la fois ---------- */
+
+  function initReels() {
+    var videos = document.querySelectorAll('.reel__video');
+    videos.forEach(function (video) {
+      var reel = video.closest('.reel');
+      var btn = reel.querySelector('.reel__play');
+      // Le bouton doré remplace les commandes du navigateur jusqu'à la première lecture
+      if (btn) video.controls = false;
+      if (btn) btn.addEventListener('click', function () {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+      video.addEventListener('play', function () {
+        video.controls = true;
+        reel.classList.add('is-playing');
+        videos.forEach(function (other) { if (other !== video) other.pause(); });
+      });
+      // En fin de lecture, on revient à l'image d'aperçu
+      video.addEventListener('ended', function () {
+        reel.classList.remove('is-playing');
+        video.controls = false;
+        video.load();
+      });
+    });
+  }
+
+  /* ---------- Visionneuse des photos d'annonces (page Clients) ---------- */
+
+  function initLightbox() {
+    var box = document.querySelector('.lightbox');
+    var galleries = document.querySelectorAll('[data-gallery]');
+    if (!box || !galleries.length || typeof box.showModal !== 'function') return; // sans <dialog>, les photos restent visibles en vignettes
+    var img = box.querySelector('.lightbox__img');
+    var title = box.querySelector('.lightbox__title');
+    var count = box.querySelector('.lightbox__count');
+    var shots = [], index = 0, opener = null;
+
+    function show(i) {
+      index = (i + shots.length) % shots.length;
+      var s = shots[index], thumb = s.querySelector('img');
+      img.src = s.getAttribute('data-full');
+      img.alt = thumb ? thumb.alt : '';
+      count.textContent = (index + 1) + ' / ' + shots.length;
+    }
+
+    galleries.forEach(function (gallery) {
+      var list = Array.prototype.slice.call(gallery.querySelectorAll('[data-full]'));
+      list.forEach(function (btn, i) {
+        btn.addEventListener('click', function () {
+          shots = list;
+          opener = btn;
+          title.textContent = gallery.getAttribute('data-title') || '';
+          show(i);
+          box.showModal();
+        });
+      });
+    });
+
+    box.querySelector('.lightbox__prev').addEventListener('click', function () { show(index - 1); });
+    box.querySelector('.lightbox__next').addEventListener('click', function () { show(index + 1); });
+    box.querySelector('.lightbox__close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) { if (e.target === box) box.close(); });  // clic sur le fond
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+    });
+    box.addEventListener('close', function () {
+      img.src = 'data:,';
+      if (opener) opener.focus();
+    });
+
+    // Balayage au doigt sur mobile
+    var startX = null;
+    img.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    img.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+  }
+
   function init() {
     initMenu();
     initProgress();
@@ -317,6 +400,8 @@
     initMedia();
     if (!reduced) initSpotlight();
     initFilters();
+    initReels();
+    initLightbox();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

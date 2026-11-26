@@ -9,7 +9,7 @@ Le site est **statique** : de simples fichiers HTML, CSS et JavaScript, sans out
 | Fichier | Page |
 | --- | --- |
 | `index.html` | Accueil / Le studio : hero, bandeau des savoir-faire, « 明かり », équipe (« Qui sommes-nous ? »), prestations vidéo et photo, méthode |
-| `clients.html` | Clients & réalisations : immobilier, entreprises & PME, formats, galerie filtrable |
+| `clients.html` | Clients & réalisations : immobilier, vidéos immobilières, annonces mises en valeur, entreprises & PME, formats, galerie filtrable |
 | `formules.html` | Les 3 offres (Reportage photo, Pack Shorts / Réseaux sociaux, Film promotionnel — sur devis) et formulaire de demande de devis |
 | `mentions-legales.html` | Mentions légales et politique de confidentialité |
 | `404.html` | Page affichée pour une adresse inexistante |
@@ -122,6 +122,38 @@ Pour changer une photo :
 3. Pour recadrer, modifiez `--pos` dans l'attribut `style` de l'image (`--pos: 50% 30%` montre davantage le haut, `--pos: 20% 50%` davantage la gauche). `--pos-sm` permet un cadrage propre aux téléphones. La photo du haut de l'accueil est un cas à part : son cadrage est calculé dans `style.css` (section « Accueil : hero plein écran ») pour que l'enseigne Studio Akari reste visible au-dessus du titre ; si vous changez cette photo, ces valeurs sont à recalculer.
 
 Tant qu'une photo n'est pas chargée, une « scène lumineuse » animée aux couleurs du studio s'affiche à sa place, comme dans la maquette.
+
+## Vidéos immobilières (page Clients)
+
+Les vidéos sont dans `assets/videos/`, avec pour chacune son image d'aperçu :
+
+| Bien | Vidéo | Aperçu |
+| --- | --- | --- |
+| Châtellerault — maison rénovée de 251 m² | `chatellerault.mp4` | `chatellerault-apercu.jpg` |
+| Château-Larcher — maison familiale de 217 m² | `chateau-larcher.mp4` | `chateau-larcher-apercu.jpg` |
+| Poitiers — longère en pierre de 181 m² | `poitiers.mp4` | `poitiers-apercu.jpg` |
+
+Elles sont converties pour le web (vertical 720 × 1280, H.264, lecture qui démarre avant la fin du téléchargement) : 9 à 19 Mo chacune. Une vidéo ne se charge que lorsque le visiteur clique dessus.
+
+Chaque carte renvoie vers la publication Instagram, la visite 360° Matterport et l'annonce efficity. **Quand un bien est vendu**, l'annonce disparaît d'efficity : retirez alors le lien « Voir l'annonce » de sa carte dans `clients.html`, ou remplacez-le par la mention « Vendu ».
+
+Pour ajouter une vidéo : exportez-la en vertical (1080 × 1920 ou 720 × 1280, H.264), placez-la dans `assets/videos/` avec une image d'aperçu JPEG, puis copiez un bloc `<li class="reel">` existant dans `clients.html` et adaptez les noms de fichiers, textes et liens.
+
+**Mise en ligne** : le dossier `assets/videos` pèse près de 50 Mo. Une fois envoyé chez OVH, inutile de le renvoyer à chaque mise à jour du site : dans FileZilla, choisissez « Écraser si la source est plus récente » ou décochez ce dossier.
+
+## Annonces mises en valeur (page Clients)
+
+Trois annonces de Morgan Louis-Eugène sur efficity, chacune avec 5 photos du reportage (bandeau « À VENDRE » conservé) :
+
+| Bien | Photos |
+| --- | --- |
+| Châtellerault — maison rénovée de 251 m² | `assets/img/annonces/chatellerault-1…5-*.jpg` |
+| Jaunay-Marigny — maison rénovée de 160 m² (exclusivité) | `assets/img/annonces/jaunay-marigny-1…5-*.jpg` |
+| Poitiers — maison de maître de 209 m² (exclusivité, bien prestige) | `assets/img/annonces/poitiers-1…5-*.jpg` |
+
+Chaque photo existe en 400, 800 et 1500 px de large. La première est la grande photo de la carte ; un clic sur n'importe quelle photo ouvre la visionneuse plein écran (flèches, clavier, balayage au doigt).
+
+**Quand un bien est vendu** : dans `clients.html`, remplacez `En vente` par `Vendu` dans la carte (`<span class="annonce__status">`) et retirez le bouton « Voir l'annonce », qui ne mènerait plus nulle part. Les prix ne sont volontairement pas affichés.
 
 ## Modifier les couleurs ou les textes
 

@@ -42,6 +42,7 @@ AddType image/x-icon .ico
   ExpiresByType image/png "access plus 1 month"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
 </IfModule>
 
 # ---------- En-têtes de sécurité ----------
